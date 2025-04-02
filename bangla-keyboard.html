@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="bn">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Bangla Keyboard – বাংলা কীবোর্ড – Type Bangla Online</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+        .header{
+            width: 70%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px;
+            background-color: #f0f0f0;
+            border-bottom: 1px solid #ccc;
+        }
+        .switch-container{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+    </style>
+</head>
+
+<body>
+    <center>
+        <div class="header">
+            <div>
+                <h3>Bangla Keyboard – বাংলা কীবোর্ড – Type Bangla Online</h3>
+                <p>With a Bangla keyboard you can type directly in Bangla without installing any software.</p>
+            </div>
+            <div class="switch-container">
+                Bangla keyboard<input type="checkbox" id="switch" onclick="toggleMode()" /><label for="switch"></label>Calculator
+            </div>
+        </div>
+        <form>
+            <div class="textarea-container">
+                <textarea id="bangla" name="bangla" placeholder="বাংলা টাইপ করুন..."></textarea>
+                <!-- Copy button positioned at top right of the textarea -->
+                <button type="button" class="copy-button" onclick="copyText()">Copy</button>
+            </div>
+            <br />
+            <input class="pointer" onclick="switchLanguageMode()" type="button" value="Switch Bangla &amp; English" />
+        </form>
+        <!-- On‑screen Keyboard -->
+        <div class="keyboard" id="onScreenKeyboard">
+            <center>
+            <!-- Number row with Shift and Copy buttons -->
+            <button id="num0" onclick="insertNumber(0)">১</button>
+            <button id="num1" onclick="insertNumber(1)">২</button>
+            <button id="num2" onclick="insertNumber(2)">৩</button>
+            <button id="num3" onclick="insertNumber(3)">৪</button>
+            <button id="num4" onclick="insertNumber(4)">৫</button>
+            <button id="num5" onclick="insertNumber(5)">৬</button>
+            <button id="num6" onclick="insertNumber(6)">৭</button>
+            <button id="num7" onclick="insertNumber(7)">৮</button>
+            <button id="num8" onclick="insertNumber(8)">৯</button>
+            <button id="num9" onclick="insertNumber(9)">০</button>
+            <button id="num10" onclick="insertNumber(10)">-</button>
+            <button id="num11" onclick="insertNumber(11)">=</button>
+            <button class="key-backspace" onclick="backspace()">Backspace</button>
+            <br />
+            <!-- Vowels row with shift/unshift -->
+            <button data-unshift="ঙ" data-shift="ং" onclick="insertKey(this)">ঙ</button>
+            <button data-unshift="য" data-shift="য়" onclick="insertKey(this)">য</button>
+            <button data-unshift="ড" data-shift="ঢ" onclick="insertKey(this)">ড</button>
+            <button data-unshift="প" data-shift="ফ" onclick="insertKey(this)">প</button>
+            <button data-unshift="ট" data-shift="ঠ" onclick="insertKey(this)">ট</button>
+            <button data-unshift="চ" data-shift="ছ" onclick="insertKey(this)">চ</button>
+            <button data-unshift="জ" data-shift="ঝ" onclick="insertKey(this)">জ</button>
+            <button data-unshift="হ" data-shift="ঞ" onclick="insertKey(this)">হ</button>
+            <button data-unshift="গ" data-shift="ঘ" onclick="insertKey(this)">গ</button>
+            <button data-unshift="ড়" data-shift="ঢ়" onclick="insertKey(this)">ড়</button>
+            <button data-unshift="[" data-shift='{' onclick="insertKey(this)">[</button>
+            <button data-unshift="]" data-shift='}' onclick="insertKey(this)">]</button>
+            <button data-unshift="ৱ" data-shift='ৰ' onclick="insertKey(this)">ৱ</button><br>
+            <!-- Consonants row 1 -->
+            <button data-unshift="ৃ" data-shift="র্" onclick="insertKey(this)">ৃ</button>
+            <button data-unshift="ু" data-shift="ূ" onclick="insertKey(this)">ু</button>
+            <button data-unshift="ি" data-shift="ী" onclick="insertKey(this)">ি</button>
+            <button data-unshift="া" data-shift="অ" onclick="insertKey(this)">া</button>
+            <button data-unshift="্" data-shift="।" onclick="insertKey(this)">্</button>
+            <button data-unshift="ব" data-shift="ভ" onclick="insertKey(this)">ব</button>
+            <button data-unshift="ক" data-shift="খ" onclick="insertKey(this)">ক</button>
+            <button data-unshift="ত" data-shift="থ" onclick="insertKey(this)">ত</button>
+            <button data-unshift="দ" data-shift="ধ" onclick="insertKey(this)">দ</button>
+            <button data-unshift=";" data-shift=":" onclick="insertKey(this)">;</button>
+            <button data-unshift="'" data-shift='"' onclick="insertKey(this)">'</button><br>
+            <!-- Consonants row 2 -->
+            <button data-unshift="্র" data-shift="্য" onclick="insertKey(this)">্র</button>
+            <button data-unshift="ো" data-shift="ৌ" onclick="insertKey(this)">ো</button>
+            <button data-unshift="ে" data-shift="ৈ" onclick="insertKey(this)">ে</button>
+            <button data-unshift="র" data-shift="ল" onclick="insertKey(this)">র</button>
+            <button data-unshift="ন" data-shift="ণ" onclick="insertKey(this)">ন</button>
+            <button data-unshift="স" data-shift="ষ" onclick="insertKey(this)">স</button>
+            <button data-unshift="ম" data-shift="শ" onclick="insertKey(this)">ম</button>
+            <button data-unshift="আ" data-shift="ব়্য" onclick="insertKey(this)">আ</button>
+            <button data-unshift="," data-shift="<" onclick="insertKey(this)">,</button>
+            <button data-unshift="." data-shift=">" onclick="insertKey(this)">.</button>
+            <button data-unshift="/" data-shift="?" onclick="insertKey(this)">/</button>
+            <br>
+            <!-- Row for Space, Enter, Backspace, and Shift toggle -->
+            <button class="key-enter" id="shiftKey" onclick="toggleShift()">Shift</button>
+            <button class="key-space" id="shiftKey1" data-unshift=" " data-shift=" " onclick="insertKey(this)">Space</button>
+            <button class="key-enter" data-unshift="Enter" data-shift="Enter" id="enter-key" onclick="insertEnter()">Enter</button>
+            <button class="key-enter" onclick="toggleShift()">Shift</button>
+            </center>
+        </div>
+    </center>
+
+   <script src="app.js"></script>
+</body>
+
+</html>
+
+
+
+
